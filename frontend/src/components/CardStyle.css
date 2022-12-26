@@ -1,0 +1,8 @@
+.card-style {
+    width: 20rem;
+    margin: 10px;
+}
+
+.card-style:hover {
+    transform: scale(1.05);
+}
