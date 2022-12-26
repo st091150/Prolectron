@@ -1,0 +1,36 @@
+version: '3'
+services:
+  client:
+        build: ./frontend
+        expose:
+            - 3000
+        ports:
+            - 3000:3000
+        volumes:
+            - ./frontend/src
+            - ./frontend/public
+        stdin_open: true
+
+        command: npm run start
+
+  server:
+        build: ./backend
+        expose:
+            - 8000
+        ports:
+            - 8000:8000
+        volumes:
+            - ./backend
+        depends_on:
+            - mongo    
+        command: npm run start 
+        
+        
+  mongo:
+    container_name: shop
+    build: shop
+    ports:
+      - '27017:27017'
+
+
+  

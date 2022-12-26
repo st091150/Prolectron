@@ -1,0 +1,97 @@
+<ISSPECS>
+  <DESCRIPTION>
+    <TITLE>Prolectron</TITLE>
+    <SUBJ>Интернет мгазин электронной техники</SUBJ>
+  </DESCRIPTION>
+  <DATA>
+    <ENTITY ent_id="category">
+      <PROPERTY>id</PROPERTY>
+      <PROPERTY>name</PROPERTY>
+      <PROPERTY>slug</PROPERTY>
+      
+    </ENTITY>
+    <ENTITY ent_id="product">
+      <PROPERTY>id</PROPERTY>
+      <PROPERTY>name</PROPERTY>
+      <PROPERTY>slug</PROPERTY>
+      <PROPERTY>picture</PROPERTY>
+      <PROPERTY>description</PROPERTY>
+      <PROPERTY>price</PROPERTY>
+      <PROPERTY>stock</PROPERTY>
+      <PROPERTY>created</PROPERTY>
+      <PROPERTY>updated</PROPERTY>
+      
+    </ENTITY>
+    <ENTITY ent_id="order">
+      <PROPERTY>id</PROPERTY>
+      <PROPERTY>products</PROPERTY>
+      <PROPERTY>status</PROPERTY>
+      <PROPERTY>created</PROPERTY>
+      <PROPERTY>updated</PROPERTY>
+      <PROPERTY>total</PROPERTY>
+      <PROPERTY>email</PROPERTY>
+      <PROPERTY>adress</PROPERTY>
+      <PROPERTY>country</PROPERTY>
+      <PROPERTY>date</PROPERTY>
+    </ENTITY>
+    <ENTITY ent_id="order history">
+      <PROPERTY>Userid</PROPERTY>
+      <PROPERTY>OrderID</PROPERTY>
+      </ENTITY>
+    <ENTITY ent_id="notifications">
+      <PROPERTY>UserId</PROPERTY>
+      <PROPERTY>text</PROPERTY>
+    </ENTITY>
+    <ENTITY ent_id="img">
+      <PROPERTY>Id</PROPERTY>
+      <PROPERTY>url</PROPERTY>
+    </ENTITY>
+    
+
+    <RELATIONSHIPS ent_ids = "user orderHistory">
+      <PROPERTY>ONE TO MANY</PROPERTY>
+    </RELATIONSHIPS>
+    <RELATIONSHIPS ent_ids = "notification user">
+      <PROPERTY>ONE TO MANY</PROPERTY>
+    </RELATIONSHIPS>
+    <RELATIONSHIPS ent_ids = "orderHistory orders">
+      <PROPERTY>ONE TO ONE</PROPERTY>
+    </RELATIONSHIPS>
+    <RELATIONSHIPS ent_ids = "Product Order">
+      <PROPERTY>ONE TO MANY</PROPERTY>
+    <RELATIONSHIPS ent_ids = "Category Product">
+      <PROPERTY>ONE TO ONE</PROPERTY>
+    <RELATIONSHIPS ent_ids = "Product img">
+      <PROPERTY>ONE TO MANY</PROPERTY>
+
+    </RELATIONSHIPS>
+    <CONSTRAINT> Ограничение NOT NULL повсеместно</CONSTRAINT>
+  </DATA>
+  <ROLES>
+    <ROLE>
+      <TITLE>VISITER</TITLE>
+      <RESPOSIBILITY>Добавление товара в корзину</RESPOSIBILITY>
+      <RESPOSIBILITY>Оформление заказа</RESPOSIBILITY>
+      
+    </ROLE>
+    <ROLE>
+      <TITLE>Admin</TITLE>
+      <RESPOSIBILITY>Добавление,изменение категории</RESPOSIBILITY>
+      <RESPOSIBILITY>Добавление, изменение, удаление товара</RESPOSIBILITY>
+      <RESPOSIBILITY>Удаление заказа</RESPOSIBILITY>
+      <RESPOSIBILITY>Просмотр заказа, элементов, подтверждать заказ</RESPOSIBILITY>
+      
+    </ROLE>
+    
+  </ROLES>
+  <TECHSPEC>
+    <TYPE>React</TYPE>
+    <DEVTOOLS>
+      <DEV>NodeJS</DEV>
+    </DEVTOOLS>
+    <DBMS>
+      <TITLE>MongoDB</TITLE>
+      <REASONING>Наличие документации и материалов в открытом доступе.</REASONING>
+    </DBMS>
+  </TECHSPEC>
+</ISSPECS>
